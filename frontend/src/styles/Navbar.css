@@ -7,10 +7,3 @@ img {
     direction: rtl;
     align-content: center;
 }
-
-.halekti {  
-    -webkit-text-stroke: 0.01px #00000099;
-    background: linear-gradient(300deg, rgb(101 231 233) 0%, rgba(251, 231, 187, 1) 100%);
-    background-clip: text;
-    color: transparent;
-}

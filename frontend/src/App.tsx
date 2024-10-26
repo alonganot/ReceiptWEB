@@ -6,7 +6,7 @@ import {
   Routes,
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Box } from "@mui/material";
+import { Box, createTheme, ThemeProvider } from "@mui/material";
 
 import HomePage from "./pages/HomePage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
@@ -40,17 +40,30 @@ function App() {
     },
   ]
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#62dbc4',
+      },
+      secondary: {
+        main: '#dbbc62',
+      },
+    },
+  });
+
   return (
     <Box sx={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
       <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <UserProvider>
+            <ThemeProvider theme={theme}>
             <Navbar />
               <Routes>
                 { myRoutes.map((route, index) => <Route key={index} path={route.path}
                 element={route.element} errorElement={<NotFoundPage />} />)}    
               </Routes>
+            </ThemeProvider>
           </UserProvider>
         </AuthProvider>
       </QueryClientProvider>

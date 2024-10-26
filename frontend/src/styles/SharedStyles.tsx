@@ -5,19 +5,16 @@ import '../assets/fonts/fonts.css'
 export const Title = styled(Typography)({
   fontFamily: 'MainFont',
   fontWeight: 'bold !important',
+  background: 'linear-gradient(300deg, rgb(118, 221, 225) 0%, rgb(248, 209, 126) 100%)',
+  backgroundClip: 'text',
+  color: 'transparent !important'
 })
-
-export const TopCenterTitle = styled(Typography)<{ height: number }>((props) => ({
-  fontWeight: 'bold !important',
-  position: 'fixed',
-  top: `${props.height}%`,
-  left: '50%',
-  transform: `translate(-50%, -${props.height}%)`
-}))
 
 export const Subtitle = styled(Typography)({
   fontWeight: '500 !important',
-})
+  background: 'linear-gradient(300deg, rgb(118, 221, 225) 0%, rgb(248, 209, 126) 100%)',
+  backgroundClip: 'text',
+  color: 'transparent !important'})
 
 export const modalStyle = (width: number) => {
   return {

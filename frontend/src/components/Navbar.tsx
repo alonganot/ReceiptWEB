@@ -14,7 +14,7 @@ function Navbar() {
                     </Button>
                </Grid>
                 <Grid item xs={8} className='headerTitle'>
-                    <Title className='halekti' variant='h4' onClick={() => navigate("/")}
+                    <Title variant='h4' onClick={() => navigate("/")}
                     style={{fontFamily: 'MainFont'}}>חלק'תי</Title>
                 </Grid>
                 <Grid item xs={2}>

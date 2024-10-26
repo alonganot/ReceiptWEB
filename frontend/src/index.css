@@ -1,6 +1,6 @@
 #root {
   background: rgb(162,250,251);
-  background: linear-gradient(300deg, rgba(162,250,251,1) 0%, rgba(251,231,187,1) 100%);
+  background: linear-gradient(300deg, rgb(5, 5, 5) 0%, rgb(37, 37, 37) 100%);
   padding: 0;
   max-width: 100vw;
   margin: 0 auto;

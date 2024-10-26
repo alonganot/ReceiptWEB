@@ -3,4 +3,45 @@
     width: 70vw;
     border-radius: 40px !important;
     margin: 2.5vh !important;
+    position: relative !important;
+}
+
+.background {
+    position: relative !important;
+    z-index: 1;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.background::after, .background::before {
+    content: '';
+    position: absolute !important;
+    height: 84%;
+    width: 89%;
+    background-image: conic-gradient(from var(--angle), rgb(118, 221, 225), rgb(118, 225, 118), rgb(248, 209, 126), rgb(35, 148, 185), rgb(118, 221, 225));
+    border-radius: 40px !important;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 1px; 
+    z-index: -1;
+    animation: 3s spin linear infinite
+}
+
+.background::before {
+    filter: blur(0.9rem);
+    opacity: 0.4;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg
+    }
+    to {
+        --angle: 360deg
+    }
 }
