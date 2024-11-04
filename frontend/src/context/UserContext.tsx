@@ -11,7 +11,8 @@ const UserContext = React.createContext<iUserContext | null>(null)
 export const useUserContext = () => useContext(UserContext) as iUserContext
 const defaultUser: User = {
     id: 'test-id',
-    nickname: 'אלונגה'
+    nickname: 'אלונגה',
+    picture: ''
 }
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {

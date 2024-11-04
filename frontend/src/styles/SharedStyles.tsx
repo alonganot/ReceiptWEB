@@ -19,13 +19,13 @@ export const Subtitle = styled(Typography)({
 export const modalStyle = (width: number) => {
   return {
     position: 'absolute' as 'absolute',
-    top: '50%',
+    top: '25%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: width,
-    bgcolor: 'background.paper',
+    bgcolor: 'rgb(15, 15, 15)',
     borderRadius: '15px',
-    boxShadow: '0.5em 0.5em 1em rgb(74 72 72 / 60%)',
+    boxShadow: '0 0 2em rgb(32 90 43 / 60%)',
     align: 'center',
     p: 4,
   }

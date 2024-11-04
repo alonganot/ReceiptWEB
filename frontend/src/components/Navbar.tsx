@@ -1,7 +1,8 @@
-import { Button, Grid, Icon } from '@mui/material'
+import { Grid } from '@mui/material'
 import '../styles/Navbar.css'
 import { Title } from '../styles/SharedStyles'
 import { useNavigate } from 'react-router-dom'
+import UserModal from './UserModal'
 
 function Navbar() {
     const navigate = useNavigate()
@@ -9,9 +10,7 @@ function Navbar() {
         <>
             <Grid container sx={{marginBottom: '3vh'}}>
                 <Grid item xs={2}>
-                    <Button style={{height: '100%'}}>
-                        <Icon>person</Icon>
-                    </Button>
+                    <UserModal />
                </Grid>
                 <Grid item xs={8} className='headerTitle'>
                     <Title variant='h4' onClick={() => navigate("/")}

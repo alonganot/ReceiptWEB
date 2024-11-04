@@ -1,12 +1,11 @@
 import {
   BrowserRouter,
-  createBrowserRouter,
   Route,
-  RouterProvider,
   Routes,
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Box, createTheme, ThemeProvider } from "@mui/material";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import HomePage from "./pages/HomePage.tsx";
 import NotFoundPage from "./pages/NotFoundPage.tsx";
@@ -16,6 +15,8 @@ import { AuthProvider } from "./context/AuthContext.tsx";
 import Navbar from "./components/Navbar.tsx";
 import { SessionPageWrapper } from "./pages/SessionPage.tsx";
 import JoinSessionPage from "./pages/JoinSessionPage.tsx";
+import LoginPage from "./pages/LoginPage.tsx";
+import ProtectedRoute from "./pages/ProtectedRoute.tsx";
 
 function App() {
 
@@ -24,19 +25,35 @@ function App() {
   const myRoutes = [
     {
       path: "/",
-      element: <HomePage />,
+      element: 
+      <ProtectedRoute>
+        <HomePage />
+      </ProtectedRoute>,
+    },
+    {
+      path: "/login",
+      element: <LoginPage />,
     },
     {
       path: "/create",
-      element: <CreateSessionPage />,
+      element: 
+      <ProtectedRoute>
+        <CreateSessionPage />
+      </ProtectedRoute>,
     },
     {
       path: "/join",
-      element: <JoinSessionPage />,
+      element:
+      <ProtectedRoute>
+        <JoinSessionPage />
+      </ProtectedRoute>,
     },
     {
       path: "/session/:id",
-      element: <SessionPageWrapper />,
+      element:
+      <ProtectedRoute>
+        <SessionPageWrapper />
+      </ProtectedRoute>,
     },
   ]
 
@@ -53,21 +70,23 @@ function App() {
 
   return (
     <Box sx={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
-      <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
+      <GoogleOAuthProvider clientId="560910471669-uhp4sjqvm08cktgvgcq275hm2bgn57hv.apps.googleusercontent.com">
+        <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
           <UserProvider>
-            <ThemeProvider theme={theme}>
-            <Navbar />
-              <Routes>
-                { myRoutes.map((route, index) => <Route key={index} path={route.path}
-                element={route.element} errorElement={<NotFoundPage />} />)}    
-              </Routes>
-            </ThemeProvider>
+            <AuthProvider>
+                <ThemeProvider theme={theme}>
+                <Navbar />
+                  <Routes>
+                    { myRoutes.map((route, index) => <Route key={index} path={route.path}
+                    element={route.element} errorElement={<NotFoundPage />} />)}    
+                  </Routes>
+                </ThemeProvider>
+            </AuthProvider>
           </UserProvider>
-        </AuthProvider>
-      </QueryClientProvider>
-      </BrowserRouter>
+        </QueryClientProvider>
+        </BrowserRouter>
+      </GoogleOAuthProvider>;
     </Box>
   )
 }

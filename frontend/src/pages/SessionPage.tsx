@@ -15,8 +15,8 @@ export function SessionPageWrapper() {
 
     return <SessionPage />;
   }
-
-export function SessionPage() {
+  
+ function SessionPage() {
   const { id } = useParams();
   const [sessionData, setSessionData] = useState<Session | null>(null);
 

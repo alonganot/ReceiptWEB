@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function HomePage() {
   const navigate = useNavigate()
   const { user } = useUserContext()
-  const titleText = 'טוב שחזרת,'
+  const titleText = 'טוב שחזרת'
   const subtitleText = 'אז מה נעשה הפעם?'
 
   const PrimaryButton = styled(Button)<ButtonProps>(({ theme }) => ({
@@ -23,7 +23,7 @@ function HomePage() {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Title variant='h4' style={{fontFamily: "MainFont", marginBottom: '1vh'}}>{titleText} {user.nickname}</Title>
+        <Title variant='h4' style={{fontFamily: "MainFont", marginBottom: '1vh', direction: "rtl"}}>{titleText} {user.nickname.split(" ")[0]}</Title>
         <Subtitle dir="rtl" variant='h5' style={{fontFamily: "MainFont", marginBottom: '4vh'}}>{subtitleText}</Subtitle>
       </Box>
       <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
