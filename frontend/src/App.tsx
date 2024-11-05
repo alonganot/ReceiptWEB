@@ -18,9 +18,6 @@ import LoginPage from "./pages/LoginPage.tsx";
 import ProtectedRoute from "./pages/ProtectedRoute.tsx";
 
 function App() {
-
-  const queryClient = new QueryClient()
-
   const myRoutes = [
     {
       path: "/",
