@@ -4,6 +4,9 @@ import { useParams } from 'react-router-dom';
 import NotFoundPage from './NotFoundPage';
 import { api } from '../../data/api';
 import { Session } from '../types/Sesssion';
+import { Title } from '../styles/SharedStyles';
+import { Box } from '@mui/material';
+import UserIcons from '../components/UserIcons';
 
 export function SessionPageWrapper() {
     const { id } = useParams();
@@ -15,7 +18,7 @@ export function SessionPageWrapper() {
 
     return <SessionPage />;
   }
-  
+
  function SessionPage() {
   const { id } = useParams();
   const [sessionData, setSessionData] = useState<Session | null>(null);
@@ -24,7 +27,7 @@ export function SessionPageWrapper() {
     const fetchSession = async () => {
         try {
           const response = await api().sessions().getById(id!)
-          setSessionData(response || {_id: 'not-found', title: 'not-found', 'managerId': 'not-found'});
+          setSessionData(response || {_id: 'not-found', title: 'not-found', 'managerId': 'not-found', users: [], items: []});
         } catch (error) {
           console.error("Error fetching session data:", error);
         }
@@ -34,17 +37,17 @@ export function SessionPageWrapper() {
   }, [id]);
 
   return (
-    <div>
+    <>
       {sessionData ? (
         sessionData._id === 'not-found' ? 
         <NotFoundPage /> :
-        <div>
-          <h1>Session Details</h1>
-          <pre>{JSON.stringify(sessionData, null, 2)}</pre>
-        </div>
+        <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
+            <Title sx={{marginBottom: '1vh'}} variant='h4' dir='rtl'>{sessionData.title}</Title>
+            <UserIcons users={sessionData.users} />
+        </Box>
       ) : (
         <p>Loading session data...</p>
       )}
-    </div>
+    </>
   );
 }

@@ -90,6 +90,23 @@ export const api = () => {
                         console.log(error)
                         return ''
                     }
+                },
+                async join(sessionId: string, user: User): Promise<string> {
+                    try {
+                        const res = await axios({
+                            method: 'patch',
+                            url: `${SERVER_URL}/sessions/${sessionId}/join`,
+                            headers: {},
+                            data: {
+                                user
+                            }
+                        });
+
+                        return res?.data
+                    } catch (error) {
+                        console.log(error)
+                        return ''
+                    }
                 }
             }
         },

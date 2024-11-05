@@ -44,7 +44,9 @@ router.post('/', async (req: Request, res: Response) => {
     try {
         const newSession = new SessionModel({
             title: session.title,
-            managerId: session.managerId
+            managerId: session.managerId,
+            items: session.items,
+            users: session.users
         });
 
         await newSession.save();
@@ -66,4 +68,30 @@ router.delete('/:id', async (req: Request, res: Response) => {
         res.status(500).send("Error deleting session");
     }
 });
+
+router.patch('/:id/join', async (req: Request, res: Response) => {
+    const { user } = req.body
+
+    try {
+        const session = await SessionModel.findById(req.params.id).exec();
+
+        if (!session) {
+            res.status(404).send("Session not found");
+        } else {
+            const userExists = session.users.some((existingUser) => existingUser.id === user.id);
+            if (userExists) {
+                res.status(200).send("User already exists in session");
+            } else {
+                session.users.push(user);
+                await session.save();
+        
+                res.status(201).send("User added successfully");
+            }
+        }
+    } catch (error: any) {
+        res.status(500).send("Error adding user to session: " + error.message);
+    }
+});
+
+
 export default router

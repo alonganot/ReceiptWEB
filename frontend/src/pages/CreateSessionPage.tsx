@@ -21,8 +21,12 @@ function CreateSessionPage() {
   
   const createSession = async () => {
     try {
-        const res = await api().sessions().add({_id: 'placeholder', managerId: user.id,
-             title: title? title : defaultSessionTitle })
+        const res = await api().sessions().add({
+            _id: 'placeholder', managerId: user.id,
+            title: title ? title : defaultSessionTitle,
+            users: [user],
+            items: []
+        })
         
         if (res.length > 0) {
             navigate(`/session/${res}`)
