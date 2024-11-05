@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function HomePage() {
   const navigate = useNavigate()
   const { user } = useUserContext()
+
   const titleText = 'טוב שחזרת'
   const subtitleText = 'אז מה נעשה הפעם?'
 

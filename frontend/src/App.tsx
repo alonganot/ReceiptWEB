@@ -3,7 +3,6 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from 'react-query'
 import { Box, createTheme, ThemeProvider } from "@mui/material";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
@@ -72,7 +71,6 @@ function App() {
     <Box sx={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
       <GoogleOAuthProvider clientId="560910471669-uhp4sjqvm08cktgvgcq275hm2bgn57hv.apps.googleusercontent.com">
         <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
           <UserProvider>
             <AuthProvider>
                 <ThemeProvider theme={theme}>
@@ -84,9 +82,8 @@ function App() {
                 </ThemeProvider>
             </AuthProvider>
           </UserProvider>
-        </QueryClientProvider>
         </BrowserRouter>
-      </GoogleOAuthProvider>;
+      </GoogleOAuthProvider>
     </Box>
   )
 }
