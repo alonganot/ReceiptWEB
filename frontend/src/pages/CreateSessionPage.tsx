@@ -42,13 +42,13 @@ function CreateSessionPage() {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Title variant='h4' style={{fontFamily: "MainFont", marginBottom: '1vh'}}>{titleText}</Title>
-        <Subtitle dir="rtl" variant='h5' style={{fontFamily: "MainFont"}}>{subtitleText}</Subtitle>
+        <Title variant='h4' style={{marginBottom: '1vh'}}>{titleText}</Title>
+        <Subtitle dir="rtl" variant='h5'>{subtitleText}</Subtitle>
       </Box>
       <Box marginTop={'2vh'} display={'flex'} flexDirection={'column'} alignItems={'center'}>
         <TextField style={{direction: "rtl", fontSize: '50px'}} onChange={changeTitle}
          placeholder={defaultSessionTitle} variant="standard" />
-        <Button style={{fontFamily: "MainFont", marginTop: '2vh', fontSize: '30px'}} variant="outlined" onClick={() => createSession()}>תן בראש פי</Button>
+        <Button style={{marginTop: '2vh', fontSize: '30px'}} variant="outlined" onClick={() => createSession()}>תן בראש פי</Button>
       </Box>
     </>
   )

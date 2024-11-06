@@ -13,8 +13,7 @@ function Navbar() {
                     <UserModal />
                </Grid>
                 <Grid item xs={8} className='headerTitle'>
-                    <Title variant='h4' onClick={() => navigate("/")}
-                    style={{fontFamily: 'MainFont'}}>חלק'תי</Title>
+                    <Title variant='h4' onClick={() => navigate("/")}>חלק'תי</Title>
                 </Grid>
                 <Grid item xs={2}>
                     <img onClick={() => navigate("/")} src="receiptLogo.png" alt="" />

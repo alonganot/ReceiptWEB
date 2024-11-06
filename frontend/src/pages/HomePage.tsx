@@ -24,8 +24,8 @@ function HomePage() {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Title variant='h4' style={{fontFamily: "MainFont", marginBottom: '1vh', direction: "rtl"}}>{titleText} {user.nickname.split(" ")[0]}</Title>
-        <Subtitle dir="rtl" variant='h5' style={{fontFamily: "MainFont", marginBottom: '4vh'}}>{subtitleText}</Subtitle>
+        <Title variant='h4' style={{marginBottom: '1vh', direction: "rtl"}}>{titleText} {user.nickname.split(" ")[0]}</Title>
+        <Subtitle dir="rtl" variant='h5' style={{marginBottom: '4vh'}}>{subtitleText}</Subtitle>
       </Box>
       <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
         <div className='background'>

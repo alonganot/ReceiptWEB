@@ -3,7 +3,7 @@ import styled from "styled-components"
 import '../assets/fonts/fonts.css'
 
 export const Title = styled(Typography)({
-  fontFamily: 'MainFont',
+  fontFamily: 'MainFont !important',
   fontWeight: 'bold !important',
   background: 'linear-gradient(300deg, rgb(118, 221, 225) 0%, rgb(248, 209, 126) 100%)',
   backgroundClip: 'text',
@@ -11,6 +11,7 @@ export const Title = styled(Typography)({
 })
 
 export const Subtitle = styled(Typography)({
+  fontFamily: 'MainFont !important',
   fontWeight: '500 !important',
   background: 'linear-gradient(300deg, rgb(118, 221, 225) 0%, rgb(248, 209, 126) 100%)',
   backgroundClip: 'text',

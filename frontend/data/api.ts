@@ -2,6 +2,7 @@ import axios from "axios"
 import { User } from "../src/types/User"
 import { Answer } from "../src/types/Answer"
 import { Session } from "../src/types/Sesssion"
+import { Item } from "../src/types/Item"
 
 const SERVER_URL = "http://localhost:3000"
 
@@ -99,6 +100,23 @@ export const api = () => {
                             headers: {},
                             data: {
                                 user
+                            }
+                        });
+
+                        return res?.data
+                    } catch (error) {
+                        console.log(error)
+                        return ''
+                    }
+                },
+                async addItem(sessionId: string, item: Item): Promise<string> {
+                    try {
+                        const res = await axios({
+                            method: 'patch',
+                            url: `${SERVER_URL}/sessions/${sessionId}/item`,
+                            headers: {},
+                            data: {
+                                item
                             }
                         });
 

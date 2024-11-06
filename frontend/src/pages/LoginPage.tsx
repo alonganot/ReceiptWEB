@@ -10,7 +10,7 @@ function LoginPage() {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Title variant='h4' style={{fontFamily: "MainFont", padding: '6px'}}>{titleText}</Title>
+        <Title variant='h4' style={{padding: '6px'}}>{titleText}</Title>
         <img src="receiptLogo.png" alt="" />
       </Box>
       <Box marginTop={'2vh'} display={'flex'} flexDirection={'column'} alignItems={'center'}>

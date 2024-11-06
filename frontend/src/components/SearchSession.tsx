@@ -29,7 +29,7 @@ function SearchSession({ header, route }: { header: string, route: string }) {
 
     return (
         <>
-            <Subtitle dir="rtl" variant='h5' style={{fontFamily: "MainFont"}}>{header}</Subtitle>
+            <Subtitle dir="rtl" variant='h5'>{header}</Subtitle>
             <TextField style={{direction: "rtl", fontSize: '50px'}} onChange={changeSearchedValue} variant="standard" />
             {foundSessions.length > 0 && <SessionList sessions={foundSessions} />}
         </>

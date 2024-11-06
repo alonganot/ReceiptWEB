@@ -93,5 +93,26 @@ router.patch('/:id/join', async (req: Request, res: Response) => {
     }
 });
 
+router.patch('/:id/item', async (req: Request, res: Response) => {
+    const { name, price, payers } = req.body.item;
+    try {
+        const session = await SessionModel.findById(req.params.id).exec();
+
+        if (!session) {
+            res.status(404).send("Session not found");
+        } else {
+            const newItem = { name, price, payers };
+            
+            session.items.push(newItem);
+            await session.save();
+            
+            res.status(201).send("Item added successfully");
+        }
+    } catch (error: any) {
+        res.status(500).send("Error adding item to session: " + error.message);
+    }   
+});
+  
+
 
 export default router

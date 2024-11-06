@@ -10,7 +10,7 @@ function JoinSessionPage() {
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Title variant='h4' style={{fontFamily: "MainFont", marginBottom: '1vh'}}>{titleText}</Title>
+        <Title variant='h4' style={{marginBottom: '1vh'}}>{titleText}</Title>
       </Box>
       <Box marginTop={'2vh'} display={'flex'} flexDirection={'column'} alignItems={'center'}>
         <SearchSession header={findByTitleMessage} route='title' />
